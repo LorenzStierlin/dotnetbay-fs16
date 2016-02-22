@@ -30,7 +30,8 @@ The following products / tools are needed to contribute / fork.
 * NCrunch [http://www.ncrunch.net/](http://www.ncrunch.net/ http://www.ncrunch.net/)
 
 ## Authors
-* Michael Schnyder
+* Lorenz Stierlin
+* Ilija Tipura
 
 ## License
 Licensed under the MIT License
