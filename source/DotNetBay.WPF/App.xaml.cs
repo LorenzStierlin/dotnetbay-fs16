@@ -21,14 +21,14 @@ namespace DotNetBay.WPF
 
         public App()
         {
-            this.MainRepository = new FileSystemMainRepository("appdata.json");
-            this.AuctionRunner = new AuctionRunner(this.MainRepository);
+            MainRepository = new FileSystemMainRepository("appdata.json");
+            AuctionRunner = new AuctionRunner(MainRepository);
 
-            this.MainRepository.SaveChanges();
-            this.AuctionRunner.Start();
+            MainRepository.SaveChanges();
+            AuctionRunner.Start();
 
-            var memberService = new SimpleMemberService(this.MainRepository);
-            var service = new AuctionService(this.MainRepository, memberService);
+            var memberService = new SimpleMemberService(MainRepository);
+            var service = new AuctionService(MainRepository, memberService);
 
             if (!service.GetAll().Any())
             {

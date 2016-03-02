@@ -12,28 +12,20 @@ namespace DotNetBay.Model
         }
 
         public long Id { get; set; }
-
         public double StartPrice { get; set; }
-
         public string Title { get; set; }
-
         public string Description { get; set; }
-
         [SuppressMessage("Microsoft.Performance", "CA1819:PropertiesShouldNotReturnArrays", Justification = "Keep it as byte-array for compatibility reasons")]
         public byte[] Image { get; set; }
-
         public double CurrentPrice { get; set; }
-
         /// <summary>
         /// Gets or sets the UTC DateTime values to avoid wrong data when serializing the values
         /// </summary>
         public DateTime StartDateTimeUtc { get; set; }
-
         /// <summary>
         /// Gets or sets the UTC DateTime values to avoid wrong data when serializing the values
         /// </summary>
         public DateTime EndDateTimeUtc { get; set; }
-
         /// <summary>
         /// Gets or sets the UTC DateTime values to avoid wrong data when serializing the values
         /// </summary>
