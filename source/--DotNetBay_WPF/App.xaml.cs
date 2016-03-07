@@ -5,7 +5,6 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
-
 using DotNetBay.Core;
 using DotNetBay.Core.Execution;
 using DotNetBay.Data.FileStorage;
@@ -19,6 +18,9 @@ namespace DotNetBay.WPF
     /// </summary>
     public partial class App : Application
     {
+        public IMainRepository MainRepository { get; private set; }
+        public IAuctionRunner AuctionRunner { get; private set; }
+
         public App()
         {
             this.MainRepository = new FileSystemMainRepository("appdata.json");
@@ -32,22 +34,17 @@ namespace DotNetBay.WPF
                 var me = memberService.GetCurrentMember();
 
                 service.Save(new Auction
-                        {
-                            Title = "My First Auction",
-                            StartDateTimeUtc = DateTime.UtcNow.AddSeconds(10),
-                            EndDateTimeUtc = DateTime.UtcNow.AddDays(14),
-                            StartPrice = 72,
-                            Seller = me
-                        });
+                {
+                    Title = "My First Auction",
+                    StartDateTimeUtc = DateTime.UtcNow.AddSeconds(10),
+                    EndDateTimeUtc = DateTime.UtcNow.AddDays(14),
+                    StartPrice = 72,
+                    Seller = me
+                });
             }
-        
 
             this.AuctionRunner = new AuctionRunner(this.MainRepository);
             this.AuctionRunner.Start();
         }
-
-        public IMainRepository MainRepository { get; private set; }
-        
-        public IAuctionRunner AuctionRunner { get; private set; }
     }
 }
